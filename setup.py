@@ -31,7 +31,7 @@ setup(
     description="MetaFab API",
     author="MetaFab Team",
     author_email="metafabproject@gmail.com",
-    url="",
+    url="https://pypi.org/project/metafab-python/",
     keywords=["OpenAPI", "OpenAPI-Generator", "MetaFab API"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
