@@ -82,6 +82,8 @@ class UpdateGameRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'name': (str,),  # noqa: E501
+            'email': (str,),  # noqa: E501
             'current_password': (str,),  # noqa: E501
             'new_password': (str,),  # noqa: E501
             'rpcs': ({str: (str,)},),  # noqa: E501
@@ -95,6 +97,8 @@ class UpdateGameRequest(ModelNormal):
 
 
     attribute_map = {
+        'name': 'name',  # noqa: E501
+        'email': 'email',  # noqa: E501
         'current_password': 'currentPassword',  # noqa: E501
         'new_password': 'newPassword',  # noqa: E501
         'rpcs': 'rpcs',  # noqa: E501
@@ -143,7 +147,9 @@ class UpdateGameRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            current_password (str): The game's current password. Must be provided if setting `newPassword`.. [optional]  # noqa: E501
+            name (str): A new name. Replaces the game's current name.. [optional]  # noqa: E501
+            email (str): A new email address. The game's old email will no longer be valid for account authentication. `currentPassword` must also be provided.. [optional]  # noqa: E501
+            current_password (str): The game's current password. Must be provided if setting `newPassword` or `email`.. [optional]  # noqa: E501
             new_password (str): A new password. The game's old password will no longer be valid.. [optional]  # noqa: E501
             rpcs ({str: (str,)}): Sets a custom RPC for your game to use instead of MetaFab's default RPCs for the chain(s) you specify.  Expects a JSON object containing key value pairs of supported `chain` -> `rpc url`. Only the chain names provided as keys in the object will be explicitly overriden. To delete a custom RPC for your game, provide the chain name to delete as a key in the provided object and `null` as the value.  Set RPC example, `{ MATIC: 'https://polygon-rpc.com' }` Delete RPC example, `{ MATIC: null }`. [optional]  # noqa: E501
             reset_published_key (bool): Revokes the game's previous published key and returns a new one if true.. [optional]  # noqa: E501
@@ -233,7 +239,9 @@ class UpdateGameRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            current_password (str): The game's current password. Must be provided if setting `newPassword`.. [optional]  # noqa: E501
+            name (str): A new name. Replaces the game's current name.. [optional]  # noqa: E501
+            email (str): A new email address. The game's old email will no longer be valid for account authentication. `currentPassword` must also be provided.. [optional]  # noqa: E501
+            current_password (str): The game's current password. Must be provided if setting `newPassword` or `email`.. [optional]  # noqa: E501
             new_password (str): A new password. The game's old password will no longer be valid.. [optional]  # noqa: E501
             rpcs ({str: (str,)}): Sets a custom RPC for your game to use instead of MetaFab's default RPCs for the chain(s) you specify.  Expects a JSON object containing key value pairs of supported `chain` -> `rpc url`. Only the chain names provided as keys in the object will be explicitly overriden. To delete a custom RPC for your game, provide the chain name to delete as a key in the provided object and `null` as the value.  Set RPC example, `{ MATIC: 'https://polygon-rpc.com' }` Delete RPC example, `{ MATIC: null }`. [optional]  # noqa: E501
             reset_published_key (bool): Revokes the game's previous published key and returns a new one if true.. [optional]  # noqa: E501

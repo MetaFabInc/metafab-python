@@ -190,6 +190,8 @@ with metafab_python.ApiClient() as api_client:
     game_id = "gameId_example" # str | Any game id within the MetaFab ecosystem.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
     update_game_request = UpdateGameRequest(
+        name="name_example",
+        email="email_example",
         current_password="current_password_example",
         new_password="new_password_example",
         rpcs={
