@@ -17,6 +17,7 @@
 from metafab_python.api.contracts_api import ContractsApi
 from metafab_python.api.currencies_api import CurrenciesApi
 from metafab_python.api.games_api import GamesApi
+from metafab_python.api.items_api import ItemsApi
 from metafab_python.api.players_api import PlayersApi
 from metafab_python.api.transactions_api import TransactionsApi
 from metafab_python.api.wallets_api import WalletsApi

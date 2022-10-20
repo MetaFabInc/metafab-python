@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**burn_currency**](CurrenciesApi.md#burn_currency) | **POST** /v1/currencies/{currencyId}/burns | Burn currency
 [**create_currency**](CurrenciesApi.md#create_currency) | **POST** /v1/currencies | Create currency
 [**get_currencies**](CurrenciesApi.md#get_currencies) | **GET** /v1/currencies | Get currencies
-[**get_currency_balances**](CurrenciesApi.md#get_currency_balances) | **GET** /v1/currencies/{currencyId}/balances | Get currency balance
+[**get_currency_balance**](CurrenciesApi.md#get_currency_balance) | **GET** /v1/currencies/{currencyId}/balances | Get currency balance
 [**get_currency_fees**](CurrenciesApi.md#get_currency_fees) | **GET** /v1/currencies/{currencyId}/fees | Get currency fees
 [**mint_currency**](CurrenciesApi.md#mint_currency) | **POST** /v1/currencies/{currencyId}/mints | Mint currency
 [**set_currency_fees**](CurrenciesApi.md#set_currency_fees) | **POST** /v1/currencies/{currencyId}/fees | Set currency fees
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Batch transfer currency
 
-Transfers multiple amounts of currency to multiple provided wallet addresses or wallet addresses associated with the provided walletIds. You may also provide a combination of addresses and walletIds in one request, the proper receipients will be automatically determined, with `addresses` getting `amounts` order priority first. Optional references may be included for the transfer. References are useful for identifying transfers intended to pay for items, trades, services and more.
+Transfers multiple amounts of currency to multiple provided wallet addresses or wallet addresses associated with the provided walletIds. You may also provide a combination of addresses and walletIds in one request, the proper receipients will be automatically determined, with `addresses` getting `amounts` order priority first.  Optional references may be included for the transfer. References are useful for identifying transfers intended to pay for items, trades, services and more.
 
 ### Example
 
@@ -329,8 +329,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_currency_balances**
-> float get_currency_balances(currency_id)
+# **get_currency_balance**
+> float get_currency_balance(currency_id)
 
 Get currency balance
 
@@ -362,19 +362,19 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get currency balance
-        api_response = api_instance.get_currency_balances(currency_id)
+        api_response = api_instance.get_currency_balance(currency_id)
         pprint(api_response)
     except metafab_python.ApiException as e:
-        print("Exception when calling CurrenciesApi->get_currency_balances: %s\n" % e)
+        print("Exception when calling CurrenciesApi->get_currency_balance: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Get currency balance
-        api_response = api_instance.get_currency_balances(currency_id, address=address, wallet_id=wallet_id)
+        api_response = api_instance.get_currency_balance(currency_id, address=address, wallet_id=wallet_id)
         pprint(api_response)
     except metafab_python.ApiException as e:
-        print("Exception when calling CurrenciesApi->get_currency_balances: %s\n" % e)
+        print("Exception when calling CurrenciesApi->get_currency_balance: %s\n" % e)
 ```
 
 
@@ -482,7 +482,7 @@ No authorization required
 
 Mint currency
 
-Creates (mints) the provided amount of currency  to the provided wallet address or wallet address associated with the provided walletId.
+Creates (mints) the provided amount of currency to the provided wallet address or wallet address associated with the provided walletId.
 
 ### Example
 
