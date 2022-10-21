@@ -395,7 +395,7 @@ with metafab_python.ApiClient() as api_client:
         attributes=[
             CreateCollectionItemRequestAttributesInner(
                 trait_type="Attack Power",
-                value=CreateCollectionItemRequestAttributesInnerValue(None),
+                value=None,
             ),
         ],
         data={},
