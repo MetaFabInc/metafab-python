@@ -16,6 +16,7 @@
 # Import APIs into API package:
 from metafab_python.api.contracts_api import ContractsApi
 from metafab_python.api.currencies_api import CurrenciesApi
+from metafab_python.api.exchanges_api import ExchangesApi
 from metafab_python.api.games_api import GamesApi
 from metafab_python.api.items_api import ItemsApi
 from metafab_python.api.players_api import PlayersApi

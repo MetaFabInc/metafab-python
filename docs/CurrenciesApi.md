@@ -10,7 +10,10 @@ Method | HTTP request | Description
 [**get_currencies**](CurrenciesApi.md#get_currencies) | **GET** /v1/currencies | Get currencies
 [**get_currency_balance**](CurrenciesApi.md#get_currency_balance) | **GET** /v1/currencies/{currencyId}/balances | Get currency balance
 [**get_currency_fees**](CurrenciesApi.md#get_currency_fees) | **GET** /v1/currencies/{currencyId}/fees | Get currency fees
+[**get_currency_role**](CurrenciesApi.md#get_currency_role) | **GET** /v1/currencies/{currencyId}/roles | Get currency role
+[**grant_currency_role**](CurrenciesApi.md#grant_currency_role) | **POST** /v1/currencies/{currencyId}/roles | Grant currency role
 [**mint_currency**](CurrenciesApi.md#mint_currency) | **POST** /v1/currencies/{currencyId}/mints | Mint currency
+[**revoke_currency_role**](CurrenciesApi.md#revoke_currency_role) | **DELETE** /v1/currencies/{currencyId}/roles | Revoke currency role
 [**set_currency_fees**](CurrenciesApi.md#set_currency_fees) | **POST** /v1/currencies/{currencyId}/fees | Set currency fees
 [**transfer_currency**](CurrenciesApi.md#transfer_currency) | **POST** /v1/currencies/{currencyId}/transfers | Transfer currency
 
@@ -477,6 +480,170 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_currency_role**
+> bool get_currency_role(currency_id, role)
+
+Get currency role
+
+Returns a boolean (true/false) representing if the provided role for this currency has been granted to the provided address or address associated with the provided walletId.
+
+### Example
+
+
+```python
+import time
+import metafab_python
+from metafab_python.api import currencies_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.trymetafab.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = metafab_python.Configuration(
+    host = "https://api.trymetafab.com"
+)
+
+
+# Enter a context with an instance of the API client
+with metafab_python.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = currencies_api.CurrenciesApi(api_client)
+    currency_id = "currencyId_example" # str | Any currency id within the MetaFab ecosystem.
+    role = "minter" # str | A valid MetaFab role or bytes string representing a role, such as `0xc9eb32e43bf5ecbceacf00b32281dfc5d6d700a0db676ea26ccf938a385ac3b7`
+    address = "0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D" # str | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`. (optional)
+    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab ecosystem. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get currency role
+        api_response = api_instance.get_currency_role(currency_id, role)
+        pprint(api_response)
+    except metafab_python.ApiException as e:
+        print("Exception when calling CurrenciesApi->get_currency_role: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get currency role
+        api_response = api_instance.get_currency_role(currency_id, role, address=address, wallet_id=wallet_id)
+        pprint(api_response)
+    except metafab_python.ApiException as e:
+        print("Exception when calling CurrenciesApi->get_currency_role: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency_id** | **str**| Any currency id within the MetaFab ecosystem. |
+ **role** | **str**| A valid MetaFab role or bytes string representing a role, such as &#x60;0xc9eb32e43bf5ecbceacf00b32281dfc5d6d700a0db676ea26ccf938a385ac3b7&#x60; |
+ **address** | **str**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional]
+ **wallet_id** | **str**| Any wallet id within the MetaFab ecosystem. | [optional]
+
+### Return type
+
+**bool**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved the boolean value representing if the provided role has been granted to the provided address or walletId. |  -  |
+**400** | An API level error occurred. This is often due to problematic data being provided by you. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **grant_currency_role**
+> TransactionModel grant_currency_role(currency_id, x_authorization, x_password, grant_currency_role_request)
+
+Grant currency role
+
+Grants the provided role for the currency to the provided address or address associated with the provided walletId. Granted roles give different types of authority on behalf of the currency for specific players, addresses, or contracts to perform different types of permissioned currency operations.
+
+### Example
+
+
+```python
+import time
+import metafab_python
+from metafab_python.api import currencies_api
+from metafab_python.model.transaction_model import TransactionModel
+from metafab_python.model.grant_currency_role_request import GrantCurrencyRoleRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.trymetafab.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = metafab_python.Configuration(
+    host = "https://api.trymetafab.com"
+)
+
+
+# Enter a context with an instance of the API client
+with metafab_python.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = currencies_api.CurrenciesApi(api_client)
+    currency_id = "currencyId_example" # str | Any currency id within the MetaFab ecosystem.
+    x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
+    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    grant_currency_role_request = GrantCurrencyRoleRequest(
+        role="role_example",
+        address="address_example",
+        wallet_id=[
+            "wallet_id_example",
+        ],
+    ) # GrantCurrencyRoleRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Grant currency role
+        api_response = api_instance.grant_currency_role(currency_id, x_authorization, x_password, grant_currency_role_request)
+        pprint(api_response)
+    except metafab_python.ApiException as e:
+        print("Exception when calling CurrenciesApi->grant_currency_role: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency_id** | **str**| Any currency id within the MetaFab ecosystem. |
+ **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
+ **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **grant_currency_role_request** | [**GrantCurrencyRoleRequest**](GrantCurrencyRoleRequest.md)|  |
+
+### Return type
+
+[**TransactionModel**](TransactionModel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully granted the provided role to the provided address or address associated with the provided walletId. |  -  |
+**400** | An API level error occurred. This is often due to problematic data being provided by you. |  -  |
+**401** | An authorization error occured. This is often due to incorrect tokens or keys being provided, or accessing a resource that the provided tokens or keys do not have access to. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **mint_currency**
 > TransactionModel mint_currency(currency_id, x_authorization, x_password, mint_currency_request)
 
@@ -552,6 +719,88 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully created (minted) the currency amount to the provided wallet address or wallet address of the provided walletId. Returns a transaction object. |  -  |
+**400** | An API level error occurred. This is often due to problematic data being provided by you. |  -  |
+**401** | An authorization error occured. This is often due to incorrect tokens or keys being provided, or accessing a resource that the provided tokens or keys do not have access to. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **revoke_currency_role**
+> TransactionModel revoke_currency_role(currency_id, x_authorization, x_password, revoke_collection_role_request)
+
+Revoke currency role
+
+Revokes the provided role for the currency to the provided address or address associated with the provided walletId.
+
+### Example
+
+
+```python
+import time
+import metafab_python
+from metafab_python.api import currencies_api
+from metafab_python.model.transaction_model import TransactionModel
+from metafab_python.model.revoke_collection_role_request import RevokeCollectionRoleRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.trymetafab.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = metafab_python.Configuration(
+    host = "https://api.trymetafab.com"
+)
+
+
+# Enter a context with an instance of the API client
+with metafab_python.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = currencies_api.CurrenciesApi(api_client)
+    currency_id = "currencyId_example" # str | Any currency id within the MetaFab ecosystem.
+    x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
+    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    revoke_collection_role_request = RevokeCollectionRoleRequest(
+        role="role_example",
+        address="address_example",
+        wallet_id=[
+            "wallet_id_example",
+        ],
+    ) # RevokeCollectionRoleRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Revoke currency role
+        api_response = api_instance.revoke_currency_role(currency_id, x_authorization, x_password, revoke_collection_role_request)
+        pprint(api_response)
+    except metafab_python.ApiException as e:
+        print("Exception when calling CurrenciesApi->revoke_currency_role: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currency_id** | **str**| Any currency id within the MetaFab ecosystem. |
+ **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
+ **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **revoke_collection_role_request** | [**RevokeCollectionRoleRequest**](RevokeCollectionRoleRequest.md)|  |
+
+### Return type
+
+[**TransactionModel**](TransactionModel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully revoked the provided role from the provided address or address associated with the provided walletId. Returns a transaction object. |  -  |
 **400** | An API level error occurred. This is often due to problematic data being provided by you. |  -  |
 **401** | An authorization error occured. This is often due to incorrect tokens or keys being provided, or accessing a resource that the provided tokens or keys do not have access to. |  -  |
 
