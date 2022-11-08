@@ -49,6 +49,9 @@ from metafab_python.model.grant_currency_role_request import GrantCurrencyRoleRe
 from metafab_python.model.mint_collection_item_request import MintCollectionItemRequest
 from metafab_python.model.mint_currency_request import MintCurrencyRequest
 from metafab_python.model.player_model import PlayerModel
+from metafab_python.model.public_game import PublicGame
+from metafab_python.model.public_player import PublicPlayer
+from metafab_python.model.public_player_wallet import PublicPlayerWallet
 from metafab_python.model.revoke_collection_role_request import RevokeCollectionRoleRequest
 from metafab_python.model.set_collection_approval_request import SetCollectionApprovalRequest
 from metafab_python.model.set_collection_item_timelock_request import SetCollectionItemTimelockRequest

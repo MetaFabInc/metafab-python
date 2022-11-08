@@ -48,6 +48,9 @@ docs/MintCollectionItemRequest.md
 docs/MintCurrencyRequest.md
 docs/PlayerModel.md
 docs/PlayersApi.md
+docs/PublicGame.md
+docs/PublicPlayer.md
+docs/PublicPlayerWallet.md
 docs/RevokeCollectionRoleRequest.md
 docs/SetCollectionApprovalRequest.md
 docs/SetCollectionItemTimelockRequest.md
@@ -119,6 +122,9 @@ metafab_python/model/grant_currency_role_request.py
 metafab_python/model/mint_collection_item_request.py
 metafab_python/model/mint_currency_request.py
 metafab_python/model/player_model.py
+metafab_python/model/public_game.py
+metafab_python/model/public_player.py
+metafab_python/model/public_player_wallet.py
 metafab_python/model/revoke_collection_role_request.py
 metafab_python/model/set_collection_approval_request.py
 metafab_python/model/set_collection_item_timelock_request.py

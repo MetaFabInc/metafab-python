@@ -4,8 +4,9 @@ All URIs are relative to *https://api.trymetafab.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**auth_game**](GamesApi.md#auth_game) | **GET** /v1/games | Authenticate game
+[**auth_game**](GamesApi.md#auth_game) | **GET** /v1/games/auth | Authenticate game
 [**create_game**](GamesApi.md#create_game) | **POST** /v1/games | Create game
+[**get_game**](GamesApi.md#get_game) | **GET** /v1/games/{gameId} | Get game
 [**update_game**](GamesApi.md#update_game) | **PATCH** /v1/games/{gameId} | Update game
 
 
@@ -156,6 +157,74 @@ No authorization required
 **200** | Successfully created a new game. Returns a game object containing a wallet and fundingWallet property, respectively representing the games primary wallet address (used to deploy &amp; interact with contract) and funding wallet address (used to cover gasless transaction fees). |  -  |
 **400** | An API level error occurred. This is often due to problematic data being provided by you. |  -  |
 **401** | An authorization error occured. This is often due to incorrect tokens or keys being provided, or accessing a resource that the provided tokens or keys do not have access to. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_game**
+> PublicGame get_game(game_id)
+
+Get game
+
+Returns a game object for the provided game id.
+
+### Example
+
+
+```python
+import time
+import metafab_python
+from metafab_python.api import games_api
+from metafab_python.model.public_game import PublicGame
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.trymetafab.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = metafab_python.Configuration(
+    host = "https://api.trymetafab.com"
+)
+
+
+# Enter a context with an instance of the API client
+with metafab_python.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = games_api.GamesApi(api_client)
+    game_id = "gameId_example" # str | Any game id within the MetaFab ecosystem.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get game
+        api_response = api_instance.get_game(game_id)
+        pprint(api_response)
+    except metafab_python.ApiException as e:
+        print("Exception when calling GamesApi->get_game: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **game_id** | **str**| Any game id within the MetaFab ecosystem. |
+
+### Return type
+
+[**PublicGame**](PublicGame.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved game. |  -  |
+**400** | An API level error occurred. This is often due to problematic data being provided by you. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
