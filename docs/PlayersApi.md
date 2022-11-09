@@ -7,7 +7,9 @@ Method | HTTP request | Description
 [**auth_player**](PlayersApi.md#auth_player) | **GET** /v1/players/auth | Authenticate player
 [**create_player**](PlayersApi.md#create_player) | **POST** /v1/players | Create player
 [**get_player**](PlayersApi.md#get_player) | **GET** /v1/players/{playerId} | Get player
+[**get_player_data**](PlayersApi.md#get_player_data) | **GET** /v1/players/{playerId}/data | Get player data
 [**get_players**](PlayersApi.md#get_players) | **GET** /v1/players | Get players
+[**set_player_data**](PlayersApi.md#set_player_data) | **POST** /v1/players/{playerId}/data | Set player data
 [**update_player**](PlayersApi.md#update_player) | **PATCH** /v1/players/{playerId} | Update player
 
 
@@ -234,6 +236,74 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_player_data**
+> GetPlayerData200Response get_player_data(player_id)
+
+Get player data
+
+Returns the latest public and protected data as an object for the provided playerId.
+
+### Example
+
+
+```python
+import time
+import metafab_python
+from metafab_python.api import players_api
+from metafab_python.model.get_player_data200_response import GetPlayerData200Response
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.trymetafab.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = metafab_python.Configuration(
+    host = "https://api.trymetafab.com"
+)
+
+
+# Enter a context with an instance of the API client
+with metafab_python.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = players_api.PlayersApi(api_client)
+    player_id = "playerId_example" # str | Any player id within the MetaFab ecosystem.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get player data
+        api_response = api_instance.get_player_data(player_id)
+        pprint(api_response)
+    except metafab_python.ApiException as e:
+        print("Exception when calling PlayersApi->get_player_data: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **player_id** | **str**| Any player id within the MetaFab ecosystem. |
+
+### Return type
+
+[**GetPlayerData200Response**](GetPlayerData200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved player data. Returns latest player data object. |  -  |
+**400** | An API level error occurred. This is often due to problematic data being provided by you. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_players**
 > [PublicPlayer] get_players(x_authorization)
 
@@ -298,6 +368,82 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successfully retrieved players. |  -  |
+**401** | An authorization error occured. This is often due to incorrect tokens or keys being provided, or accessing a resource that the provided tokens or keys do not have access to. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_player_data**
+> GetPlayerData200Response set_player_data(player_id, x_authorization, set_player_data_request)
+
+Set player data
+
+Creates or updates public and/or protected data for the provided playerId. Data updates are performed using deep merging. This means that when you update any top level or nested properties specific to player public or protected data, you only need to include the properties you are making changes to. Any existing properties not included in request body arguments will be retained on the player data object.  Please note, When writing an array type for a player, arrays do not follow the deep merge approach. If you add or remove an item from an array, the entire array must be passed as an argument when updating the related property for player public or protected data.
+
+### Example
+
+
+```python
+import time
+import metafab_python
+from metafab_python.api import players_api
+from metafab_python.model.set_player_data_request import SetPlayerDataRequest
+from metafab_python.model.get_player_data200_response import GetPlayerData200Response
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.trymetafab.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = metafab_python.Configuration(
+    host = "https://api.trymetafab.com"
+)
+
+
+# Enter a context with an instance of the API client
+with metafab_python.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = players_api.PlayersApi(api_client)
+    player_id = "playerId_example" # str | Any player id within the MetaFab ecosystem.
+    x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
+    set_player_data_request = SetPlayerDataRequest(
+        protected_data={},
+        public_data={},
+    ) # SetPlayerDataRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Set player data
+        api_response = api_instance.set_player_data(player_id, x_authorization, set_player_data_request)
+        pprint(api_response)
+    except metafab_python.ApiException as e:
+        print("Exception when calling PlayersApi->set_player_data: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **player_id** | **str**| Any player id within the MetaFab ecosystem. |
+ **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
+ **set_player_data_request** | [**SetPlayerDataRequest**](SetPlayerDataRequest.md)|  |
+
+### Return type
+
+[**GetPlayerData200Response**](GetPlayerData200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully set player data. Returns latest player data object. |  -  |
 **401** | An authorization error occured. This is often due to incorrect tokens or keys being provided, or accessing a resource that the provided tokens or keys do not have access to. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

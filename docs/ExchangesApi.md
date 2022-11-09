@@ -45,7 +45,7 @@ with metafab_python.ApiClient() as api_client:
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
     x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     create_exchange_request = CreateExchangeRequest(
-        chain="MATIC",
+        chain="SELECT ONE",
     ) # CreateExchangeRequest | 
 
     # example passing only required values which don't have defaults set

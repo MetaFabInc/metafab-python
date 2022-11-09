@@ -42,7 +42,7 @@ with metafab_python.ApiClient() as api_client:
     create_contract_request = CreateContractRequest(
         address="address_example",
         abi="abi_example",
-        chain="MATIC",
+        chain="SELECT ONE",
     ) # CreateContractRequest | 
 
     # example passing only required values which don't have defaults set

@@ -219,7 +219,7 @@ with metafab_python.ApiClient() as api_client:
         name="Bright Gems",
         symbol="BGEM",
         supply_cap=15000.5,
-        chain="MATIC",
+        chain="SELECT ONE",
     ) # CreateCurrencyRequest | 
 
     # example passing only required values which don't have defaults set

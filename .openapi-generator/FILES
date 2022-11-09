@@ -41,6 +41,7 @@ docs/GetCurrencies200ResponseInner.md
 docs/GetCurrencies200ResponseInnerAllOf.md
 docs/GetCurrencyFees200Response.md
 docs/GetExchanges200ResponseInner.md
+docs/GetPlayerData200Response.md
 docs/GrantCollectionRoleRequest.md
 docs/GrantCurrencyRoleRequest.md
 docs/ItemsApi.md
@@ -56,6 +57,7 @@ docs/SetCollectionApprovalRequest.md
 docs/SetCollectionItemTimelockRequest.md
 docs/SetCurrencyFeesRequest.md
 docs/SetExchangeOfferRequest.md
+docs/SetPlayerDataRequest.md
 docs/TransactionModel.md
 docs/TransactionsApi.md
 docs/TransferCollectionItemRequest.md
@@ -117,6 +119,7 @@ metafab_python/model/get_currencies200_response_inner.py
 metafab_python/model/get_currencies200_response_inner_all_of.py
 metafab_python/model/get_currency_fees200_response.py
 metafab_python/model/get_exchanges200_response_inner.py
+metafab_python/model/get_player_data200_response.py
 metafab_python/model/grant_collection_role_request.py
 metafab_python/model/grant_currency_role_request.py
 metafab_python/model/mint_collection_item_request.py
@@ -130,6 +133,7 @@ metafab_python/model/set_collection_approval_request.py
 metafab_python/model/set_collection_item_timelock_request.py
 metafab_python/model/set_currency_fees_request.py
 metafab_python/model/set_exchange_offer_request.py
+metafab_python/model/set_player_data_request.py
 metafab_python/model/transaction_model.py
 metafab_python/model/transfer_collection_item_request.py
 metafab_python/model/transfer_currency_request.py
