@@ -267,7 +267,9 @@ with metafab_python.ApiClient() as api_client:
     x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     write_contract_request = WriteContractRequest(
         func="func_example",
-        args="args_example",
+        args=[
+            WriteContractRequestArgsInner(None),
+        ],
     ) # WriteContractRequest | 
 
     # example passing only required values which don't have defaults set

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**quantity** | **float** | The quantity of the collectionItemId to transfer. | 
+**quantity** | **int** | The quantity of the collectionItemId to transfer. | 
 **address** | **str** | A valid EVM based addresses to transfer items to. | [optional] 
 **wallet_id** | **[str]** | A wallet id within the MetaFab ecosystem to transfer items to. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

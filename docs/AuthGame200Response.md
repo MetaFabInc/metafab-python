@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **rpcs** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** | This field has not had a description added. | [optional] 
 **published_key** | **str** | This field has not had a description added. | [optional] 
 **secret_key** | **str** | This field has not had a description added. | [optional] 
+**verified** | **bool** | This field has not had a description added. | [optional] 
 **updated_at** | **str** | This field has not had a description added. | [optional] 
 **created_at** | **str** | This field has not had a description added. | [optional] 
 **wallet** | [**WalletModel**](WalletModel.md) |  | [optional] 

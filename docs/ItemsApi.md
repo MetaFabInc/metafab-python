@@ -61,10 +61,10 @@ with metafab_python.ApiClient() as api_client:
     batch_mint_collection_items_request = BatchMintCollectionItemsRequest(
         address="address_example",
         item_ids=[
-            3.14,
+            1,
         ],
         quantities=[
-            3.14,
+            1,
         ],
         wallet_id="wallet_id_example",
     ) # BatchMintCollectionItemsRequest | 
@@ -234,7 +234,7 @@ with metafab_python.ApiClient() as api_client:
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
     x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     burn_collection_item_request = BurnCollectionItemRequest(
-        quantity=3.14,
+        quantity=1,
     ) # BurnCollectionItemRequest | 
 
     # example passing only required values which don't have defaults set
@@ -599,7 +599,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_collection_item_balance**
-> float get_collection_item_balance(collection_id, collection_item_id)
+> int get_collection_item_balance(collection_id, collection_item_id)
 
 Get collection item balance
 
@@ -659,7 +659,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**float**
+**int**
 
 ### Authorization
 
@@ -681,7 +681,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_collection_item_balances**
-> {str: (float,)} get_collection_item_balances(collection_id)
+> {str: (int,)} get_collection_item_balances(collection_id)
 
 Get collection item balances
 
@@ -739,7 +739,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**{str: (float,)}**
+**{str: (int,)}**
 
 ### Authorization
 
@@ -761,7 +761,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_collection_item_supplies**
-> {str: (float,)} get_collection_item_supplies(collection_id)
+> {str: (int,)} get_collection_item_supplies(collection_id)
 
 Get collection item supplies
 
@@ -806,7 +806,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**{str: (float,)}**
+**{str: (int,)}**
 
 ### Authorization
 
@@ -828,7 +828,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_collection_item_supply**
-> float get_collection_item_supply(collection_id, collection_item_id)
+> int get_collection_item_supply(collection_id, collection_item_id)
 
 Get collection item supply
 
@@ -888,7 +888,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**float**
+**int**
 
 ### Authorization
 
@@ -910,7 +910,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_collection_item_timelock**
-> float get_collection_item_timelock(collection_id, collection_item_id)
+> int get_collection_item_timelock(collection_id, collection_item_id)
 
 Get collection item timelock
 
@@ -957,7 +957,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**float**
+**int**
 
 ### Authorization
 
@@ -1311,7 +1311,7 @@ with metafab_python.ApiClient() as api_client:
     x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     mint_collection_item_request = MintCollectionItemRequest(
         address="address_example",
-        quantity=3.14,
+        quantity=1,
         wallet_id="wallet_id_example",
     ) # MintCollectionItemRequest | 
 
@@ -1640,7 +1640,7 @@ with metafab_python.ApiClient() as api_client:
         wallet_id=[
             "wallet_id_example",
         ],
-        quantity=3.14,
+        quantity=1,
     ) # TransferCollectionItemRequest | 
 
     # example passing only required values which don't have defaults set

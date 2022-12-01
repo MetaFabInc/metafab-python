@@ -596,9 +596,7 @@ with metafab_python.ApiClient() as api_client:
     grant_currency_role_request = GrantCurrencyRoleRequest(
         role="role_example",
         address="address_example",
-        wallet_id=[
-            "wallet_id_example",
-        ],
+        wallet_id="wallet_id_example",
     ) # GrantCurrencyRoleRequest | 
 
     # example passing only required values which don't have defaults set
