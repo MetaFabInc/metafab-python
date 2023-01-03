@@ -266,6 +266,12 @@ with metafab_python.ApiClient() as api_client:
         rpcs={
             "key": "key_example",
         },
+        redirect_uris=[
+            "http://localhost",
+        ],
+        icon_image_base64="icon_image_base64_example",
+        cover_image_base64="cover_image_base64_example",
+        primary_color_hex="primary_color_hex_example",
         reset_published_key=True,
         reset_secret_key=True,
     ) # UpdateGameRequest | 

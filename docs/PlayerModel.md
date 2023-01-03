@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **str** | This field has not had a description added. | [optional] 
 **game_id** | **str** | This field has not had a description added. | [optional] 
 **wallet_id** | **str** | This field has not had a description added. | [optional] 
+**connected_wallet_id** | **str** | This field has not had a description added. | [optional] 
 **username** | **str** | This field has not had a description added. | [optional] 
 **access_token** | **str** | This field has not had a description added. | [optional] 
 **updated_at** | **str** | This field has not had a description added. | [optional] 
