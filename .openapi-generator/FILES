@@ -174,9 +174,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_remove_player_connected_wallet_request.py
-test/test_set_player_connected_wallet200_response.py
-test/test_set_player_connected_wallet_request.py
-test/test_transfer_contract_ownership_request.py
-test/test_upgrade_contract_trusted_forwarder_request.py
 tox.ini
