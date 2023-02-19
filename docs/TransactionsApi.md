@@ -34,7 +34,7 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = transactions_api.TransactionsApi(api_client)
-    transaction_id = "transactionId_example" # str | Any transaction id within the MetaFab ecosystem.
+    transaction_id = "transactionId_example" # str | Any transaction id within the MetaFab platform.
 
     # example passing only required values which don't have defaults set
     try:
@@ -50,7 +50,7 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transaction_id** | **str**| Any transaction id within the MetaFab ecosystem. |
+ **transaction_id** | **str**| Any transaction id within the MetaFab platform. |
 
 ### Return type
 

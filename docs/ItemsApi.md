@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 
 # **batch_mint_collection_items**
-> TransactionModel batch_mint_collection_items(collection_id, x_authorization, x_password, batch_mint_collection_items_request)
+> TransactionModel batch_mint_collection_items(collection_id, x_authorization, x_wallet_decrypt_key, batch_mint_collection_items_request)
 
 Batch mint collection items
 
@@ -55,9 +55,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     batch_mint_collection_items_request = BatchMintCollectionItemsRequest(
         address="address_example",
         item_ids=[
@@ -72,7 +72,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Batch mint collection items
-        api_response = api_instance.batch_mint_collection_items(collection_id, x_authorization, x_password, batch_mint_collection_items_request)
+        api_response = api_instance.batch_mint_collection_items(collection_id, x_authorization, x_wallet_decrypt_key, batch_mint_collection_items_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ItemsApi->batch_mint_collection_items: %s\n" % e)
@@ -83,9 +83,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **batch_mint_collection_items_request** | [**BatchMintCollectionItemsRequest**](BatchMintCollectionItemsRequest.md)|  |
 
 ### Return type
@@ -113,7 +113,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **batch_transfer_collection_items**
-> TransactionModel batch_transfer_collection_items(collection_id, x_authorization, x_password, batch_transfer_collection_items_request)
+> TransactionModel batch_transfer_collection_items(collection_id, x_authorization, x_wallet_decrypt_key, batch_transfer_collection_items_request)
 
 Batch transfer collection items
 
@@ -140,9 +140,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     batch_transfer_collection_items_request = BatchTransferCollectionItemsRequest(
         addresses=[
             "addresses_example",
@@ -161,7 +161,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Batch transfer collection items
-        api_response = api_instance.batch_transfer_collection_items(collection_id, x_authorization, x_password, batch_transfer_collection_items_request)
+        api_response = api_instance.batch_transfer_collection_items(collection_id, x_authorization, x_wallet_decrypt_key, batch_transfer_collection_items_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ItemsApi->batch_transfer_collection_items: %s\n" % e)
@@ -172,9 +172,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
  **batch_transfer_collection_items_request** | [**BatchTransferCollectionItemsRequest**](BatchTransferCollectionItemsRequest.md)|  |
 
 ### Return type
@@ -202,7 +202,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **burn_collection_item**
-> TransactionModel burn_collection_item(collection_id, collection_item_id, x_authorization, x_password, burn_collection_item_request)
+> TransactionModel burn_collection_item(collection_id, collection_item_id, x_authorization, x_wallet_decrypt_key, burn_collection_item_request)
 
 Burn collection item
 
@@ -229,10 +229,10 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     collection_item_id = 3.14 # float | Any item id for the collection. Zero, or a positive integer.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     burn_collection_item_request = BurnCollectionItemRequest(
         quantity=1,
     ) # BurnCollectionItemRequest | 
@@ -240,7 +240,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Burn collection item
-        api_response = api_instance.burn_collection_item(collection_id, collection_item_id, x_authorization, x_password, burn_collection_item_request)
+        api_response = api_instance.burn_collection_item(collection_id, collection_item_id, x_authorization, x_wallet_decrypt_key, burn_collection_item_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ItemsApi->burn_collection_item: %s\n" % e)
@@ -251,10 +251,10 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
  **burn_collection_item_request** | [**BurnCollectionItemRequest**](BurnCollectionItemRequest.md)|  |
 
 ### Return type
@@ -282,7 +282,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_collection**
-> CreateCollection200Response create_collection(x_authorization, x_password, create_collection_request)
+> CreateCollection200Response create_collection(x_authorization, x_wallet_decrypt_key, create_collection_request)
 
 Create collection
 
@@ -310,15 +310,16 @@ with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     create_collection_request = CreateCollectionRequest(
+        name="name_example",
         chain="SELECT ONE",
     ) # CreateCollectionRequest | 
 
     # example passing only required values which don't have defaults set
     try:
         # Create collection
-        api_response = api_instance.create_collection(x_authorization, x_password, create_collection_request)
+        api_response = api_instance.create_collection(x_authorization, x_wallet_decrypt_key, create_collection_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ItemsApi->create_collection: %s\n" % e)
@@ -330,7 +331,7 @@ with metafab_python.ApiClient() as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **create_collection_request** | [**CreateCollectionRequest**](CreateCollectionRequest.md)|  |
 
 ### Return type
@@ -358,7 +359,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_collection_item**
-> TransactionModel create_collection_item(collection_id, x_authorization, x_password, create_collection_item_request)
+> TransactionModel create_collection_item(collection_id, x_authorization, x_wallet_decrypt_key, create_collection_item_request)
 
 Create collection item
 
@@ -385,9 +386,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     create_collection_item_request = CreateCollectionItemRequest(
         id=1337,
         name="Fire Dagger",
@@ -407,7 +408,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Create collection item
-        api_response = api_instance.create_collection_item(collection_id, x_authorization, x_password, create_collection_item_request)
+        api_response = api_instance.create_collection_item(collection_id, x_authorization, x_wallet_decrypt_key, create_collection_item_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ItemsApi->create_collection_item: %s\n" % e)
@@ -418,9 +419,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **create_collection_item_request** | [**CreateCollectionItemRequest**](CreateCollectionItemRequest.md)|  |
 
 ### Return type
@@ -473,10 +474,10 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     operator_address = "0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D" # str | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`.
     address = "0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D" # str | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`. (optional)
-    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab ecosystem. (optional)
+    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab platform. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -501,10 +502,10 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **operator_address** | **str**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. |
  **address** | **str**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional]
- **wallet_id** | **str**| Any wallet id within the MetaFab ecosystem. | [optional]
+ **wallet_id** | **str**| Any wallet id within the MetaFab platform. | [optional]
 
 ### Return type
 
@@ -530,7 +531,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_collection_item**
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} get_collection_item(collection_id, collection_item_id)
+> CollectionItem get_collection_item(collection_id, collection_item_id)
 
 Get collection item
 
@@ -543,6 +544,7 @@ Returns a metadata object for the provided collectionItemId.
 import time
 import metafab_python
 from metafab_python.api import items_api
+from metafab_python.model.collection_item import CollectionItem
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.trymetafab.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -555,7 +557,7 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     collection_item_id = 3.14 # float | Any item id for the collection. Zero, or a positive integer.
 
     # example passing only required values which don't have defaults set
@@ -572,12 +574,12 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. |
 
 ### Return type
 
-**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
+[**CollectionItem**](CollectionItem.md)
 
 ### Authorization
 
@@ -624,10 +626,10 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     collection_item_id = 3.14 # float | Any item id for the collection. Zero, or a positive integer.
     address = "0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D" # str | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`. (optional)
-    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab ecosystem. (optional)
+    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab platform. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -652,10 +654,10 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. |
  **address** | **str**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional]
- **wallet_id** | **str**| Any wallet id within the MetaFab ecosystem. | [optional]
+ **wallet_id** | **str**| Any wallet id within the MetaFab platform. | [optional]
 
 ### Return type
 
@@ -706,9 +708,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     address = "0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D" # str | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`. (optional)
-    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab ecosystem. (optional)
+    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab platform. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -733,9 +735,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **address** | **str**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional]
- **wallet_id** | **str**| Any wallet id within the MetaFab ecosystem. | [optional]
+ **wallet_id** | **str**| Any wallet id within the MetaFab platform. | [optional]
 
 ### Return type
 
@@ -786,7 +788,7 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
 
     # example passing only required values which don't have defaults set
     try:
@@ -802,7 +804,7 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
 
 ### Return type
 
@@ -853,10 +855,10 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     collection_item_id = 3.14 # float | Any item id for the collection. Zero, or a positive integer.
     address = "0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D" # str | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`. (optional)
-    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab ecosystem. (optional)
+    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab platform. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -881,10 +883,10 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. |
  **address** | **str**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional]
- **wallet_id** | **str**| Any wallet id within the MetaFab ecosystem. | [optional]
+ **wallet_id** | **str**| Any wallet id within the MetaFab platform. | [optional]
 
 ### Return type
 
@@ -935,7 +937,7 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     collection_item_id = 3.14 # float | Any item id for the collection. Zero, or a positive integer.
 
     # example passing only required values which don't have defaults set
@@ -952,7 +954,7 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. |
 
 ### Return type
@@ -979,7 +981,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_collection_items**
-> [{str: (bool, date, datetime, dict, float, int, list, str, none_type)}] get_collection_items(collection_id)
+> [CollectionItem] get_collection_items(collection_id)
 
 Get collection items
 
@@ -992,6 +994,7 @@ Returns all collection items as an array of metadata objects.
 import time
 import metafab_python
 from metafab_python.api import items_api
+from metafab_python.model.collection_item import CollectionItem
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.trymetafab.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -1004,7 +1007,7 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
 
     # example passing only required values which don't have defaults set
     try:
@@ -1020,11 +1023,11 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
 
 ### Return type
 
-**[{str: (bool, date, datetime, dict, float, int, list, str, none_type)}]**
+[**[CollectionItem]**](CollectionItem.md)
 
 ### Authorization
 
@@ -1071,10 +1074,10 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     role = "minter" # str | A valid MetaFab role or bytes string representing a role, such as `0xc9eb32e43bf5ecbceacf00b32281dfc5d6d700a0db676ea26ccf938a385ac3b7`
     address = "0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D" # str | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`. (optional)
-    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab ecosystem. (optional)
+    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab platform. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -1099,10 +1102,10 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **role** | **str**| A valid MetaFab role or bytes string representing a role, such as &#x60;0xc9eb32e43bf5ecbceacf00b32281dfc5d6d700a0db676ea26ccf938a385ac3b7&#x60; |
  **address** | **str**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional]
- **wallet_id** | **str**| Any wallet id within the MetaFab ecosystem. | [optional]
+ **wallet_id** | **str**| Any wallet id within the MetaFab platform. | [optional]
 
 ### Return type
 
@@ -1196,7 +1199,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **grant_collection_role**
-> TransactionModel grant_collection_role(collection_id, x_authorization, x_password, grant_collection_role_request)
+> TransactionModel grant_collection_role(collection_id, x_authorization, x_wallet_decrypt_key, grant_collection_role_request)
 
 Grant collection role
 
@@ -1223,9 +1226,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     grant_collection_role_request = GrantCollectionRoleRequest(
         role="role_example",
         address="address_example",
@@ -1237,7 +1240,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Grant collection role
-        api_response = api_instance.grant_collection_role(collection_id, x_authorization, x_password, grant_collection_role_request)
+        api_response = api_instance.grant_collection_role(collection_id, x_authorization, x_wallet_decrypt_key, grant_collection_role_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ItemsApi->grant_collection_role: %s\n" % e)
@@ -1248,9 +1251,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
  **grant_collection_role_request** | [**GrantCollectionRoleRequest**](GrantCollectionRoleRequest.md)|  |
 
 ### Return type
@@ -1278,7 +1281,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mint_collection_item**
-> TransactionModel mint_collection_item(collection_id, collection_item_id, x_authorization, x_password, mint_collection_item_request)
+> TransactionModel mint_collection_item(collection_id, collection_item_id, x_authorization, x_wallet_decrypt_key, mint_collection_item_request)
 
 Mint collection item
 
@@ -1305,10 +1308,10 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     collection_item_id = 3.14 # float | Any item id for the collection. Zero, or a positive integer.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     mint_collection_item_request = MintCollectionItemRequest(
         address="address_example",
         quantity=1,
@@ -1318,7 +1321,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Mint collection item
-        api_response = api_instance.mint_collection_item(collection_id, collection_item_id, x_authorization, x_password, mint_collection_item_request)
+        api_response = api_instance.mint_collection_item(collection_id, collection_item_id, x_authorization, x_wallet_decrypt_key, mint_collection_item_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ItemsApi->mint_collection_item: %s\n" % e)
@@ -1329,10 +1332,10 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **mint_collection_item_request** | [**MintCollectionItemRequest**](MintCollectionItemRequest.md)|  |
 
 ### Return type
@@ -1360,7 +1363,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **revoke_collection_role**
-> TransactionModel revoke_collection_role(collection_id, x_authorization, x_password, revoke_collection_role_request)
+> TransactionModel revoke_collection_role(collection_id, x_authorization, x_wallet_decrypt_key, revoke_collection_role_request)
 
 Revoke collection role
 
@@ -1387,9 +1390,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     revoke_collection_role_request = RevokeCollectionRoleRequest(
         role="role_example",
         address="address_example",
@@ -1401,7 +1404,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Revoke collection role
-        api_response = api_instance.revoke_collection_role(collection_id, x_authorization, x_password, revoke_collection_role_request)
+        api_response = api_instance.revoke_collection_role(collection_id, x_authorization, x_wallet_decrypt_key, revoke_collection_role_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ItemsApi->revoke_collection_role: %s\n" % e)
@@ -1412,9 +1415,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
  **revoke_collection_role_request** | [**RevokeCollectionRoleRequest**](RevokeCollectionRoleRequest.md)|  |
 
 ### Return type
@@ -1442,7 +1445,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_collection_approval**
-> TransactionModel set_collection_approval(collection_id, x_authorization, x_password, set_collection_approval_request)
+> TransactionModel set_collection_approval(collection_id, x_authorization, x_wallet_decrypt_key, set_collection_approval_request)
 
 Set collection approval
 
@@ -1469,9 +1472,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     set_collection_approval_request = SetCollectionApprovalRequest(
         approved=True,
         address="address_example",
@@ -1483,7 +1486,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Set collection approval
-        api_response = api_instance.set_collection_approval(collection_id, x_authorization, x_password, set_collection_approval_request)
+        api_response = api_instance.set_collection_approval(collection_id, x_authorization, x_wallet_decrypt_key, set_collection_approval_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ItemsApi->set_collection_approval: %s\n" % e)
@@ -1494,9 +1497,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
  **set_collection_approval_request** | [**SetCollectionApprovalRequest**](SetCollectionApprovalRequest.md)|  |
 
 ### Return type
@@ -1524,7 +1527,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_collection_item_timelock**
-> TransactionModel set_collection_item_timelock(collection_id, collection_item_id, x_authorization, x_password, set_collection_item_timelock_request)
+> TransactionModel set_collection_item_timelock(collection_id, collection_item_id, x_authorization, x_wallet_decrypt_key, set_collection_item_timelock_request)
 
 Set collection item timelock
 
@@ -1551,10 +1554,10 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     collection_item_id = 3.14 # float | Any item id for the collection. Zero, or a positive integer.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     set_collection_item_timelock_request = SetCollectionItemTimelockRequest(
         timelock=1665786026,
     ) # SetCollectionItemTimelockRequest | 
@@ -1562,7 +1565,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Set collection item timelock
-        api_response = api_instance.set_collection_item_timelock(collection_id, collection_item_id, x_authorization, x_password, set_collection_item_timelock_request)
+        api_response = api_instance.set_collection_item_timelock(collection_id, collection_item_id, x_authorization, x_wallet_decrypt_key, set_collection_item_timelock_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ItemsApi->set_collection_item_timelock: %s\n" % e)
@@ -1573,10 +1576,10 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **set_collection_item_timelock_request** | [**SetCollectionItemTimelockRequest**](SetCollectionItemTimelockRequest.md)|  |
 
 ### Return type
@@ -1604,7 +1607,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **transfer_collection_item**
-> TransactionModel transfer_collection_item(collection_id, collection_item_id, x_authorization, x_password, transfer_collection_item_request)
+> TransactionModel transfer_collection_item(collection_id, collection_item_id, x_authorization, x_wallet_decrypt_key, transfer_collection_item_request)
 
 Transfer collection item
 
@@ -1631,10 +1634,10 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = items_api.ItemsApi(api_client)
-    collection_id = "collectionId_example" # str | Any collection id within the MetaFab ecosystem.
+    collection_id = "collectionId_example" # str | Any collection id within the MetaFab platform.
     collection_item_id = 3.14 # float | Any item id for the collection. Zero, or a positive integer.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     transfer_collection_item_request = TransferCollectionItemRequest(
         address="address_example",
         wallet_id=[
@@ -1646,7 +1649,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Transfer collection item
-        api_response = api_instance.transfer_collection_item(collection_id, collection_item_id, x_authorization, x_password, transfer_collection_item_request)
+        api_response = api_instance.transfer_collection_item(collection_id, collection_item_id, x_authorization, x_wallet_decrypt_key, transfer_collection_item_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ItemsApi->transfer_collection_item: %s\n" % e)
@@ -1657,10 +1660,10 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **str**| Any collection id within the MetaFab ecosystem. |
+ **collection_id** | **str**| Any collection id within the MetaFab platform. |
  **collection_item_id** | **float**| Any item id for the collection. Zero, or a positive integer. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
  **transfer_collection_item_request** | [**TransferCollectionItemRequest**](TransferCollectionItemRequest.md)|  |
 
 ### Return type

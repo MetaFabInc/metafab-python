@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **str** | This field has not had a description added. | [optional] 
 **game_id** | **str** | This field has not had a description added. | [optional] 
 **contract_id** | **str** | This field has not had a description added. | [optional] 
+**name** | **str** | This field has not had a description added. | [optional] 
 **updated_at** | **str** | This field has not had a description added. | [optional] 
 **created_at** | **str** | This field has not had a description added. | [optional] 
 **contract** | [**CreateCollection200ResponseAllOfContract**](CreateCollection200ResponseAllOfContract.md) |  | [optional] 

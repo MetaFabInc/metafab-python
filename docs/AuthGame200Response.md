@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **verified** | **bool** | This field has not had a description added. | [optional] 
 **updated_at** | **str** | This field has not had a description added. | [optional] 
 **created_at** | **str** | This field has not had a description added. | [optional] 
+**wallet_decrypt_key** | **str** | This field has not had a description added. | [optional] 
 **wallet** | [**WalletModel**](WalletModel.md) |  | [optional] 
 **funding_wallet** | [**WalletModel**](WalletModel.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **batch_transfer_currency**
-> TransactionModel batch_transfer_currency(currency_id, x_authorization, x_password, batch_transfer_currency_request)
+> TransactionModel batch_transfer_currency(currency_id, x_authorization, x_wallet_decrypt_key, batch_transfer_currency_request)
 
 Batch transfer currency
 
@@ -46,9 +46,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = currencies_api.CurrenciesApi(api_client)
-    currency_id = "currencyId_example" # str | Any currency id within the MetaFab ecosystem.
+    currency_id = "currencyId_example" # str | Any currency id within the MetaFab platform.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     batch_transfer_currency_request = BatchTransferCurrencyRequest(
         addresses=[
             "addresses_example",
@@ -67,7 +67,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Batch transfer currency
-        api_response = api_instance.batch_transfer_currency(currency_id, x_authorization, x_password, batch_transfer_currency_request)
+        api_response = api_instance.batch_transfer_currency(currency_id, x_authorization, x_wallet_decrypt_key, batch_transfer_currency_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling CurrenciesApi->batch_transfer_currency: %s\n" % e)
@@ -78,9 +78,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_id** | **str**| Any currency id within the MetaFab ecosystem. |
+ **currency_id** | **str**| Any currency id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
  **batch_transfer_currency_request** | [**BatchTransferCurrencyRequest**](BatchTransferCurrencyRequest.md)|  |
 
 ### Return type
@@ -108,7 +108,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **burn_currency**
-> TransactionModel burn_currency(currency_id, x_authorization, x_password, burn_currency_request)
+> TransactionModel burn_currency(currency_id, x_authorization, x_wallet_decrypt_key, burn_currency_request)
 
 Burn currency
 
@@ -135,9 +135,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = currencies_api.CurrenciesApi(api_client)
-    currency_id = "currencyId_example" # str | Any currency id within the MetaFab ecosystem.
+    currency_id = "currencyId_example" # str | Any currency id within the MetaFab platform.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     burn_currency_request = BurnCurrencyRequest(
         amount=133.7,
     ) # BurnCurrencyRequest | 
@@ -145,7 +145,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Burn currency
-        api_response = api_instance.burn_currency(currency_id, x_authorization, x_password, burn_currency_request)
+        api_response = api_instance.burn_currency(currency_id, x_authorization, x_wallet_decrypt_key, burn_currency_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling CurrenciesApi->burn_currency: %s\n" % e)
@@ -156,9 +156,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_id** | **str**| Any currency id within the MetaFab ecosystem. |
+ **currency_id** | **str**| Any currency id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
  **burn_currency_request** | [**BurnCurrencyRequest**](BurnCurrencyRequest.md)|  |
 
 ### Return type
@@ -186,7 +186,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_currency**
-> CreateCurrency200Response create_currency(x_authorization, x_password, create_currency_request)
+> CreateCurrency200Response create_currency(x_authorization, x_wallet_decrypt_key, create_currency_request)
 
 Create currency
 
@@ -214,7 +214,7 @@ with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = currencies_api.CurrenciesApi(api_client)
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     create_currency_request = CreateCurrencyRequest(
         name="Bright Gems",
         symbol="BGEM",
@@ -225,7 +225,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Create currency
-        api_response = api_instance.create_currency(x_authorization, x_password, create_currency_request)
+        api_response = api_instance.create_currency(x_authorization, x_wallet_decrypt_key, create_currency_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling CurrenciesApi->create_currency: %s\n" % e)
@@ -237,7 +237,7 @@ with metafab_python.ApiClient() as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **create_currency_request** | [**CreateCurrencyRequest**](CreateCurrencyRequest.md)|  |
 
 ### Return type
@@ -358,9 +358,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = currencies_api.CurrenciesApi(api_client)
-    currency_id = "currencyId_example" # str | Any currency id within the MetaFab ecosystem.
+    currency_id = "currencyId_example" # str | Any currency id within the MetaFab platform.
     address = "0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D" # str | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`. (optional)
-    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab ecosystem. (optional)
+    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab platform. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -385,9 +385,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_id** | **str**| Any currency id within the MetaFab ecosystem. |
+ **currency_id** | **str**| Any currency id within the MetaFab platform. |
  **address** | **str**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional]
- **wallet_id** | **str**| Any wallet id within the MetaFab ecosystem. | [optional]
+ **wallet_id** | **str**| Any wallet id within the MetaFab platform. | [optional]
 
 ### Return type
 
@@ -439,7 +439,7 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = currencies_api.CurrenciesApi(api_client)
-    currency_id = "currencyId_example" # str | Any currency id within the MetaFab ecosystem.
+    currency_id = "currencyId_example" # str | Any currency id within the MetaFab platform.
 
     # example passing only required values which don't have defaults set
     try:
@@ -455,7 +455,7 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_id** | **str**| Any currency id within the MetaFab ecosystem. |
+ **currency_id** | **str**| Any currency id within the MetaFab platform. |
 
 ### Return type
 
@@ -506,10 +506,10 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = currencies_api.CurrenciesApi(api_client)
-    currency_id = "currencyId_example" # str | Any currency id within the MetaFab ecosystem.
+    currency_id = "currencyId_example" # str | Any currency id within the MetaFab platform.
     role = "minter" # str | A valid MetaFab role or bytes string representing a role, such as `0xc9eb32e43bf5ecbceacf00b32281dfc5d6d700a0db676ea26ccf938a385ac3b7`
     address = "0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D" # str | A valid EVM based address. For example, `0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D`. (optional)
-    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab ecosystem. (optional)
+    wallet_id = "walletId_example" # str | Any wallet id within the MetaFab platform. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -534,10 +534,10 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_id** | **str**| Any currency id within the MetaFab ecosystem. |
+ **currency_id** | **str**| Any currency id within the MetaFab platform. |
  **role** | **str**| A valid MetaFab role or bytes string representing a role, such as &#x60;0xc9eb32e43bf5ecbceacf00b32281dfc5d6d700a0db676ea26ccf938a385ac3b7&#x60; |
  **address** | **str**| A valid EVM based address. For example, &#x60;0x39cb70F972E0EE920088AeF97Dbe5c6251a9c25D&#x60;. | [optional]
- **wallet_id** | **str**| Any wallet id within the MetaFab ecosystem. | [optional]
+ **wallet_id** | **str**| Any wallet id within the MetaFab platform. | [optional]
 
 ### Return type
 
@@ -563,7 +563,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **grant_currency_role**
-> TransactionModel grant_currency_role(currency_id, x_authorization, x_password, grant_currency_role_request)
+> TransactionModel grant_currency_role(currency_id, x_authorization, x_wallet_decrypt_key, grant_currency_role_request)
 
 Grant currency role
 
@@ -590,9 +590,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = currencies_api.CurrenciesApi(api_client)
-    currency_id = "currencyId_example" # str | Any currency id within the MetaFab ecosystem.
+    currency_id = "currencyId_example" # str | Any currency id within the MetaFab platform.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     grant_currency_role_request = GrantCurrencyRoleRequest(
         role="role_example",
         address="address_example",
@@ -602,7 +602,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Grant currency role
-        api_response = api_instance.grant_currency_role(currency_id, x_authorization, x_password, grant_currency_role_request)
+        api_response = api_instance.grant_currency_role(currency_id, x_authorization, x_wallet_decrypt_key, grant_currency_role_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling CurrenciesApi->grant_currency_role: %s\n" % e)
@@ -613,9 +613,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_id** | **str**| Any currency id within the MetaFab ecosystem. |
+ **currency_id** | **str**| Any currency id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
  **grant_currency_role_request** | [**GrantCurrencyRoleRequest**](GrantCurrencyRoleRequest.md)|  |
 
 ### Return type
@@ -643,7 +643,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mint_currency**
-> TransactionModel mint_currency(currency_id, x_authorization, x_password, mint_currency_request)
+> TransactionModel mint_currency(currency_id, x_authorization, x_wallet_decrypt_key, mint_currency_request)
 
 Mint currency
 
@@ -670,9 +670,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = currencies_api.CurrenciesApi(api_client)
-    currency_id = "currencyId_example" # str | Any currency id within the MetaFab ecosystem.
+    currency_id = "currencyId_example" # str | Any currency id within the MetaFab platform.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     mint_currency_request = MintCurrencyRequest(
         amount=133.7,
         address="address_example",
@@ -682,7 +682,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Mint currency
-        api_response = api_instance.mint_currency(currency_id, x_authorization, x_password, mint_currency_request)
+        api_response = api_instance.mint_currency(currency_id, x_authorization, x_wallet_decrypt_key, mint_currency_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling CurrenciesApi->mint_currency: %s\n" % e)
@@ -693,9 +693,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_id** | **str**| Any currency id within the MetaFab ecosystem. |
+ **currency_id** | **str**| Any currency id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **mint_currency_request** | [**MintCurrencyRequest**](MintCurrencyRequest.md)|  |
 
 ### Return type
@@ -723,7 +723,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **revoke_currency_role**
-> TransactionModel revoke_currency_role(currency_id, x_authorization, x_password, revoke_collection_role_request)
+> TransactionModel revoke_currency_role(currency_id, x_authorization, x_wallet_decrypt_key, revoke_collection_role_request)
 
 Revoke currency role
 
@@ -750,9 +750,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = currencies_api.CurrenciesApi(api_client)
-    currency_id = "currencyId_example" # str | Any currency id within the MetaFab ecosystem.
+    currency_id = "currencyId_example" # str | Any currency id within the MetaFab platform.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     revoke_collection_role_request = RevokeCollectionRoleRequest(
         role="role_example",
         address="address_example",
@@ -764,7 +764,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Revoke currency role
-        api_response = api_instance.revoke_currency_role(currency_id, x_authorization, x_password, revoke_collection_role_request)
+        api_response = api_instance.revoke_currency_role(currency_id, x_authorization, x_wallet_decrypt_key, revoke_collection_role_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling CurrenciesApi->revoke_currency_role: %s\n" % e)
@@ -775,9 +775,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_id** | **str**| Any currency id within the MetaFab ecosystem. |
+ **currency_id** | **str**| Any currency id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
  **revoke_collection_role_request** | [**RevokeCollectionRoleRequest**](RevokeCollectionRoleRequest.md)|  |
 
 ### Return type
@@ -805,7 +805,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_currency_fees**
-> TransactionModel set_currency_fees(currency_id, x_authorization, x_password, set_currency_fees_request)
+> TransactionModel set_currency_fees(currency_id, x_authorization, x_wallet_decrypt_key, set_currency_fees_request)
 
 Set currency fees
 
@@ -832,9 +832,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = currencies_api.CurrenciesApi(api_client)
-    currency_id = "currencyId_example" # str | Any currency id within the MetaFab ecosystem.
+    currency_id = "currencyId_example" # str | Any currency id within the MetaFab platform.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     set_currency_fees_request = SetCurrencyFeesRequest(
         recipient_address="recipient_address_example",
         basis_points=3.14,
@@ -845,7 +845,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Set currency fees
-        api_response = api_instance.set_currency_fees(currency_id, x_authorization, x_password, set_currency_fees_request)
+        api_response = api_instance.set_currency_fees(currency_id, x_authorization, x_wallet_decrypt_key, set_currency_fees_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling CurrenciesApi->set_currency_fees: %s\n" % e)
@@ -856,9 +856,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_id** | **str**| Any currency id within the MetaFab ecosystem. |
+ **currency_id** | **str**| Any currency id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **set_currency_fees_request** | [**SetCurrencyFeesRequest**](SetCurrencyFeesRequest.md)|  |
 
 ### Return type
@@ -886,7 +886,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **transfer_currency**
-> TransactionModel transfer_currency(currency_id, x_authorization, x_password, transfer_currency_request)
+> TransactionModel transfer_currency(currency_id, x_authorization, x_wallet_decrypt_key, transfer_currency_request)
 
 Transfer currency
 
@@ -913,9 +913,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = currencies_api.CurrenciesApi(api_client)
-    currency_id = "currencyId_example" # str | Any currency id within the MetaFab ecosystem.
+    currency_id = "currencyId_example" # str | Any currency id within the MetaFab platform.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     transfer_currency_request = TransferCurrencyRequest(
         address="address_example",
         wallet_id="wallet_id_example",
@@ -926,7 +926,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Transfer currency
-        api_response = api_instance.transfer_currency(currency_id, x_authorization, x_password, transfer_currency_request)
+        api_response = api_instance.transfer_currency(currency_id, x_authorization, x_wallet_decrypt_key, transfer_currency_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling CurrenciesApi->transfer_currency: %s\n" % e)
@@ -937,9 +937,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currency_id** | **str**| Any currency id within the MetaFab ecosystem. |
+ **currency_id** | **str**| Any currency id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
  **transfer_currency_request** | [**TransferCurrencyRequest**](TransferCurrencyRequest.md)|  |
 
 ### Return type

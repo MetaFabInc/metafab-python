@@ -183,7 +183,7 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = contracts_api.ContractsApi(api_client)
-    contract_id = "contractId_example" # str | Any contract id within the MetaFab ecosystem.
+    contract_id = "contractId_example" # str | Any contract id within the MetaFab platform.
     func = "func_example" # str | A contract function name. This can be any valid function from the the ABI of the contract you are interacting with. For example, `balanceOf`.
     args = "123,"Hello",false" # str | A comma seperated list of basic data type arguments. This is optional and only necessary if the function being invoked requires arguments per the contract ABI. For example, `123,\"Hello\",false`. (optional)
 
@@ -210,7 +210,7 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract_id** | **str**| Any contract id within the MetaFab ecosystem. |
+ **contract_id** | **str**| Any contract id within the MetaFab platform. |
  **func** | **str**| A contract function name. This can be any valid function from the the ABI of the contract you are interacting with. For example, &#x60;balanceOf&#x60;. |
  **args** | **str**| A comma seperated list of basic data type arguments. This is optional and only necessary if the function being invoked requires arguments per the contract ABI. For example, &#x60;123,\&quot;Hello\&quot;,false&#x60;. | [optional]
 
@@ -238,7 +238,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **transfer_contract_ownership**
-> TransactionModel transfer_contract_ownership(contract_id, x_authorization, x_password, transfer_contract_ownership_request)
+> TransactionModel transfer_contract_ownership(contract_id, x_authorization, x_wallet_decrypt_key, transfer_contract_ownership_request)
 
 Transfer contract ownership
 
@@ -265,9 +265,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = contracts_api.ContractsApi(api_client)
-    contract_id = "contractId_example" # str | Any contract id within the MetaFab ecosystem.
+    contract_id = "contractId_example" # str | Any contract id within the MetaFab platform.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     transfer_contract_ownership_request = TransferContractOwnershipRequest(
         owner_address="owner_address_example",
     ) # TransferContractOwnershipRequest | 
@@ -275,7 +275,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Transfer contract ownership
-        api_response = api_instance.transfer_contract_ownership(contract_id, x_authorization, x_password, transfer_contract_ownership_request)
+        api_response = api_instance.transfer_contract_ownership(contract_id, x_authorization, x_wallet_decrypt_key, transfer_contract_ownership_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ContractsApi->transfer_contract_ownership: %s\n" % e)
@@ -286,9 +286,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract_id** | **str**| Any contract id within the MetaFab ecosystem. |
+ **contract_id** | **str**| Any contract id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **transfer_contract_ownership_request** | [**TransferContractOwnershipRequest**](TransferContractOwnershipRequest.md)|  |
 
 ### Return type
@@ -316,7 +316,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upgrade_contract_trusted_forwarder**
-> TransactionModel upgrade_contract_trusted_forwarder(contract_id, x_authorization, x_password, upgrade_contract_trusted_forwarder_request)
+> TransactionModel upgrade_contract_trusted_forwarder(contract_id, x_authorization, x_wallet_decrypt_key, upgrade_contract_trusted_forwarder_request)
 
 Upgrade contract trusted forwarder
 
@@ -343,9 +343,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = contracts_api.ContractsApi(api_client)
-    contract_id = "contractId_example" # str | Any contract id within the MetaFab ecosystem.
+    contract_id = "contractId_example" # str | Any contract id within the MetaFab platform.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     upgrade_contract_trusted_forwarder_request = UpgradeContractTrustedForwarderRequest(
         forwarder_address="forwarder_address_example",
     ) # UpgradeContractTrustedForwarderRequest | 
@@ -353,7 +353,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Upgrade contract trusted forwarder
-        api_response = api_instance.upgrade_contract_trusted_forwarder(contract_id, x_authorization, x_password, upgrade_contract_trusted_forwarder_request)
+        api_response = api_instance.upgrade_contract_trusted_forwarder(contract_id, x_authorization, x_wallet_decrypt_key, upgrade_contract_trusted_forwarder_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ContractsApi->upgrade_contract_trusted_forwarder: %s\n" % e)
@@ -364,9 +364,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract_id** | **str**| Any contract id within the MetaFab ecosystem. |
+ **contract_id** | **str**| Any contract id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **upgrade_contract_trusted_forwarder_request** | [**UpgradeContractTrustedForwarderRequest**](UpgradeContractTrustedForwarderRequest.md)|  |
 
 ### Return type
@@ -394,7 +394,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **write_contract**
-> TransactionModel write_contract(contract_id, x_authorization, x_password, write_contract_request)
+> TransactionModel write_contract(contract_id, x_authorization, x_wallet_decrypt_key, write_contract_request)
 
 Write contract data
 
@@ -421,9 +421,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = contracts_api.ContractsApi(api_client)
-    contract_id = "contractId_example" # str | Any contract id within the MetaFab ecosystem.
+    contract_id = "contractId_example" # str | Any contract id within the MetaFab platform.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
     write_contract_request = WriteContractRequest(
         func="func_example",
         args=[
@@ -434,7 +434,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Write contract data
-        api_response = api_instance.write_contract(contract_id, x_authorization, x_password, write_contract_request)
+        api_response = api_instance.write_contract(contract_id, x_authorization, x_wallet_decrypt_key, write_contract_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ContractsApi->write_contract: %s\n" % e)
@@ -445,9 +445,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contract_id** | **str**| Any contract id within the MetaFab ecosystem. |
+ **contract_id** | **str**| Any contract id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
  **write_contract_request** | [**WriteContractRequest**](WriteContractRequest.md)|  |
 
 ### Return type

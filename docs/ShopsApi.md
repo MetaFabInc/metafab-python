@@ -5,7 +5,7 @@ All URIs are relative to *https://api.trymetafab.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_shop**](ShopsApi.md#create_shop) | **POST** /v1/shops | Create shop
-[**get_shop_offer**](ShopsApi.md#get_shop_offer) | **GET** /v1/shops/{shopId}/items/{shopOfferId} | Get shop offer
+[**get_shop_offer**](ShopsApi.md#get_shop_offer) | **GET** /v1/shops/{shopId}/offers/{shopOfferId} | Get shop offer
 [**get_shop_offers**](ShopsApi.md#get_shop_offers) | **GET** /v1/shops/{shopId}/offers | Get shop offers
 [**get_shops**](ShopsApi.md#get_shops) | **GET** /v1/shops | Get shops
 [**remove_shop_offer**](ShopsApi.md#remove_shop_offer) | **DELETE** /v1/shops/{shopId}/offers/{shopOfferId} | Remove shop offer
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **create_shop**
-> CreateShop200Response create_shop(x_authorization, x_password, create_shop_request)
+> CreateShop200Response create_shop(x_authorization, x_wallet_decrypt_key, create_shop_request)
 
 Create shop
 
@@ -43,15 +43,16 @@ with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = shops_api.ShopsApi(api_client)
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     create_shop_request = CreateShopRequest(
+        name="name_example",
         chain="SELECT ONE",
     ) # CreateShopRequest | 
 
     # example passing only required values which don't have defaults set
     try:
         # Create shop
-        api_response = api_instance.create_shop(x_authorization, x_password, create_shop_request)
+        api_response = api_instance.create_shop(x_authorization, x_wallet_decrypt_key, create_shop_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ShopsApi->create_shop: %s\n" % e)
@@ -63,7 +64,7 @@ with metafab_python.ApiClient() as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **create_shop_request** | [**CreateShopRequest**](CreateShopRequest.md)|  |
 
 ### Return type
@@ -117,7 +118,7 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = shops_api.ShopsApi(api_client)
-    shop_id = "shopId_example" # str | Any shop id within the MetaFab ecosystem.
+    shop_id = "shopId_example" # str | Any shop id within the MetaFab platform.
     shop_offer_id = "shopOfferId_example" # str | Any offer id for the shop. Zero, or a positive integer.
 
     # example passing only required values which don't have defaults set
@@ -134,7 +135,7 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shop_id** | **str**| Any shop id within the MetaFab ecosystem. |
+ **shop_id** | **str**| Any shop id within the MetaFab platform. |
  **shop_offer_id** | **str**| Any offer id for the shop. Zero, or a positive integer. |
 
 ### Return type
@@ -187,7 +188,7 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = shops_api.ShopsApi(api_client)
-    shop_id = "shopId_example" # str | Any shop id within the MetaFab ecosystem.
+    shop_id = "shopId_example" # str | Any shop id within the MetaFab platform.
 
     # example passing only required values which don't have defaults set
     try:
@@ -203,7 +204,7 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shop_id** | **str**| Any shop id within the MetaFab ecosystem. |
+ **shop_id** | **str**| Any shop id within the MetaFab platform. |
 
 ### Return type
 
@@ -297,7 +298,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_shop_offer**
-> TransactionModel remove_shop_offer(shop_id, shop_offer_id, x_authorization, x_password)
+> TransactionModel remove_shop_offer(shop_id, shop_offer_id, x_authorization, x_wallet_decrypt_key)
 
 Remove shop offer
 
@@ -323,15 +324,15 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = shops_api.ShopsApi(api_client)
-    shop_id = "shopId_example" # str | Any shop id within the MetaFab ecosystem.
+    shop_id = "shopId_example" # str | Any shop id within the MetaFab platform.
     shop_offer_id = "shopOfferId_example" # str | Any offer id for the shop. Zero, or a positive integer.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 
     # example passing only required values which don't have defaults set
     try:
         # Remove shop offer
-        api_response = api_instance.remove_shop_offer(shop_id, shop_offer_id, x_authorization, x_password)
+        api_response = api_instance.remove_shop_offer(shop_id, shop_offer_id, x_authorization, x_wallet_decrypt_key)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ShopsApi->remove_shop_offer: %s\n" % e)
@@ -342,10 +343,10 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shop_id** | **str**| Any shop id within the MetaFab ecosystem. |
+ **shop_id** | **str**| Any shop id within the MetaFab platform. |
  **shop_offer_id** | **str**| Any offer id for the shop. Zero, or a positive integer. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
 
 ### Return type
 
@@ -372,7 +373,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_shop_offer**
-> TransactionModel set_shop_offer(shop_id, x_authorization, x_password, set_shop_offer_request)
+> TransactionModel set_shop_offer(shop_id, x_authorization, x_wallet_decrypt_key, set_shop_offer_request)
 
 Set shop offer
 
@@ -399,9 +400,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = shops_api.ShopsApi(api_client)
-    shop_id = "shopId_example" # str | Any shop id within the MetaFab ecosystem.
+    shop_id = "shopId_example" # str | Any shop id within the MetaFab platform.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     set_shop_offer_request = SetShopOfferRequest(
         id=1337,
         input_collection_address="input_collection_address_example",
@@ -432,7 +433,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Set shop offer
-        api_response = api_instance.set_shop_offer(shop_id, x_authorization, x_password, set_shop_offer_request)
+        api_response = api_instance.set_shop_offer(shop_id, x_authorization, x_wallet_decrypt_key, set_shop_offer_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ShopsApi->set_shop_offer: %s\n" % e)
@@ -443,9 +444,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shop_id** | **str**| Any shop id within the MetaFab ecosystem. |
+ **shop_id** | **str**| Any shop id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **set_shop_offer_request** | [**SetShopOfferRequest**](SetShopOfferRequest.md)|  |
 
 ### Return type
@@ -473,7 +474,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **use_shop_offer**
-> TransactionModel use_shop_offer(shop_id, shop_offer_id, x_authorization, x_password)
+> TransactionModel use_shop_offer(shop_id, shop_offer_id, x_authorization, x_wallet_decrypt_key)
 
 Use shop offer
 
@@ -499,15 +500,15 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = shops_api.ShopsApi(api_client)
-    shop_id = "shopId_example" # str | Any shop id within the MetaFab ecosystem.
+    shop_id = "shopId_example" # str | Any shop id within the MetaFab platform.
     shop_offer_id = "shopOfferId_example" # str | Any offer id for the shop. Zero, or a positive integer.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
 
     # example passing only required values which don't have defaults set
     try:
         # Use shop offer
-        api_response = api_instance.use_shop_offer(shop_id, shop_offer_id, x_authorization, x_password)
+        api_response = api_instance.use_shop_offer(shop_id, shop_offer_id, x_authorization, x_wallet_decrypt_key)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ShopsApi->use_shop_offer: %s\n" % e)
@@ -518,10 +519,10 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shop_id** | **str**| Any shop id within the MetaFab ecosystem. |
+ **shop_id** | **str**| Any shop id within the MetaFab platform. |
  **shop_offer_id** | **str**| Any offer id for the shop. Zero, or a positive integer. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
 
 ### Return type
 
@@ -548,7 +549,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **withdraw_from_shop**
-> TransactionModel withdraw_from_shop(shop_id, x_authorization, x_password, withdraw_from_shop_request)
+> TransactionModel withdraw_from_shop(shop_id, x_authorization, x_wallet_decrypt_key, withdraw_from_shop_request)
 
 Withdraw from shop
 
@@ -575,9 +576,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = shops_api.ShopsApi(api_client)
-    shop_id = "shopId_example" # str | Any shop id within the MetaFab ecosystem.
+    shop_id = "shopId_example" # str | Any shop id within the MetaFab platform.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     withdraw_from_shop_request = WithdrawFromShopRequest(
         address="address_example",
         wallet_id="wallet_id_example",
@@ -593,7 +594,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Withdraw from shop
-        api_response = api_instance.withdraw_from_shop(shop_id, x_authorization, x_password, withdraw_from_shop_request)
+        api_response = api_instance.withdraw_from_shop(shop_id, x_authorization, x_wallet_decrypt_key, withdraw_from_shop_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling ShopsApi->withdraw_from_shop: %s\n" % e)
@@ -604,9 +605,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **shop_id** | **str**| Any shop id within the MetaFab ecosystem. |
+ **shop_id** | **str**| Any shop id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **withdraw_from_shop_request** | [**WithdrawFromShopRequest**](WithdrawFromShopRequest.md)|  |
 
 ### Return type

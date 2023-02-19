@@ -187,7 +187,7 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = games_api.GamesApi(api_client)
-    game_id = "gameId_example" # str | Any game id within the MetaFab ecosystem.
+    game_id = "gameId_example" # str | Any game id within the MetaFab platform.
 
     # example passing only required values which don't have defaults set
     try:
@@ -203,7 +203,7 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **game_id** | **str**| Any game id within the MetaFab ecosystem. |
+ **game_id** | **str**| Any game id within the MetaFab platform. |
 
 ### Return type
 
@@ -229,7 +229,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_game**
-> GameModel update_game(game_id, x_authorization, update_game_request)
+> UpdateGame200Response update_game(game_id, x_authorization, update_game_request)
 
 Update game
 
@@ -242,7 +242,7 @@ Update various fields specific to a game. Such as changing its password, resetti
 import time
 import metafab_python
 from metafab_python.api import games_api
-from metafab_python.model.game_model import GameModel
+from metafab_python.model.update_game200_response import UpdateGame200Response
 from metafab_python.model.update_game_request import UpdateGameRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.trymetafab.com
@@ -256,7 +256,7 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = games_api.GamesApi(api_client)
-    game_id = "gameId_example" # str | Any game id within the MetaFab ecosystem.
+    game_id = "gameId_example" # str | The game id of the authenticating game.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
     update_game_request = UpdateGameRequest(
         name="name_example",
@@ -290,13 +290,13 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **game_id** | **str**| Any game id within the MetaFab ecosystem. |
+ **game_id** | **str**| The game id of the authenticating game. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
  **update_game_request** | [**UpdateGameRequest**](UpdateGameRequest.md)|  |
 
 ### Return type
 
-[**GameModel**](GameModel.md)
+[**UpdateGame200Response**](UpdateGame200Response.md)
 
 ### Authorization
 

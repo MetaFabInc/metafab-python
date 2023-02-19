@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **create_lootbox_manager**
-> CreateLootboxManager200Response create_lootbox_manager(x_authorization, x_password, create_lootbox_manager_request)
+> CreateLootboxManager200Response create_lootbox_manager(x_authorization, x_wallet_decrypt_key, create_lootbox_manager_request)
 
 Create lootbox manager
 
@@ -42,15 +42,16 @@ with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = lootboxes_api.LootboxesApi(api_client)
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     create_lootbox_manager_request = CreateLootboxManagerRequest(
+        name="name_example",
         chain="SELECT ONE",
     ) # CreateLootboxManagerRequest | 
 
     # example passing only required values which don't have defaults set
     try:
         # Create lootbox manager
-        api_response = api_instance.create_lootbox_manager(x_authorization, x_password, create_lootbox_manager_request)
+        api_response = api_instance.create_lootbox_manager(x_authorization, x_wallet_decrypt_key, create_lootbox_manager_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling LootboxesApi->create_lootbox_manager: %s\n" % e)
@@ -62,7 +63,7 @@ with metafab_python.ApiClient() as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **create_lootbox_manager_request** | [**CreateLootboxManagerRequest**](CreateLootboxManagerRequest.md)|  |
 
 ### Return type
@@ -116,8 +117,8 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = lootboxes_api.LootboxesApi(api_client)
-    lootbox_manager_id = "lootboxManagerId_example" # str | Any lootbox manager id within the MetaFab ecosystem.
-    lootbox_manager_lootbox_id = "lootboxManagerLootboxId_example" # str | Any lootbox manager lootbox id within the MetaFab ecosystem.
+    lootbox_manager_id = "lootboxManagerId_example" # str | Any lootbox manager id within the MetaFab platform.
+    lootbox_manager_lootbox_id = "lootboxManagerLootboxId_example" # str | Any lootbox manager lootbox id within the MetaFab platform.
 
     # example passing only required values which don't have defaults set
     try:
@@ -133,8 +134,8 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **lootbox_manager_id** | **str**| Any lootbox manager id within the MetaFab ecosystem. |
- **lootbox_manager_lootbox_id** | **str**| Any lootbox manager lootbox id within the MetaFab ecosystem. |
+ **lootbox_manager_id** | **str**| Any lootbox manager id within the MetaFab platform. |
+ **lootbox_manager_lootbox_id** | **str**| Any lootbox manager lootbox id within the MetaFab platform. |
 
 ### Return type
 
@@ -186,7 +187,7 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = lootboxes_api.LootboxesApi(api_client)
-    lootbox_manager_id = "lootboxManagerId_example" # str | Any lootbox manager id within the MetaFab ecosystem.
+    lootbox_manager_id = "lootboxManagerId_example" # str | Any lootbox manager id within the MetaFab platform.
 
     # example passing only required values which don't have defaults set
     try:
@@ -202,7 +203,7 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **lootbox_manager_id** | **str**| Any lootbox manager id within the MetaFab ecosystem. |
+ **lootbox_manager_id** | **str**| Any lootbox manager id within the MetaFab platform. |
 
 ### Return type
 
@@ -296,7 +297,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **open_lootbox_manager_lootbox**
-> [TransactionModel] open_lootbox_manager_lootbox(lootbox_manager_id, lootbox_manager_lootbox_id, x_authorization, x_password)
+> [TransactionModel] open_lootbox_manager_lootbox(lootbox_manager_id, lootbox_manager_lootbox_id, x_authorization, x_wallet_decrypt_key)
 
 Open lootbox manager lootbox
 
@@ -322,15 +323,15 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = lootboxes_api.LootboxesApi(api_client)
-    lootbox_manager_id = "lootboxManagerId_example" # str | Any lootbox manager id within the MetaFab ecosystem.
-    lootbox_manager_lootbox_id = "lootboxManagerLootboxId_example" # str | Any lootbox manager lootbox id within the MetaFab ecosystem.
+    lootbox_manager_id = "lootboxManagerId_example" # str | Any lootbox manager id within the MetaFab platform.
+    lootbox_manager_lootbox_id = "lootboxManagerLootboxId_example" # str | Any lootbox manager lootbox id within the MetaFab platform.
     x_authorization = "["game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP","player_at_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP"]" # str | The `secretKey` of a specific game or the `accessToken` of a specific player.
-    x_password = "mySecurePassword" # str | The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet.
 
     # example passing only required values which don't have defaults set
     try:
         # Open lootbox manager lootbox
-        api_response = api_instance.open_lootbox_manager_lootbox(lootbox_manager_id, lootbox_manager_lootbox_id, x_authorization, x_password)
+        api_response = api_instance.open_lootbox_manager_lootbox(lootbox_manager_id, lootbox_manager_lootbox_id, x_authorization, x_wallet_decrypt_key)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling LootboxesApi->open_lootbox_manager_lootbox: %s\n" % e)
@@ -341,10 +342,10 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **lootbox_manager_id** | **str**| Any lootbox manager id within the MetaFab ecosystem. |
- **lootbox_manager_lootbox_id** | **str**| Any lootbox manager lootbox id within the MetaFab ecosystem. |
+ **lootbox_manager_id** | **str**| Any lootbox manager id within the MetaFab platform. |
+ **lootbox_manager_lootbox_id** | **str**| Any lootbox manager lootbox id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of a specific game or the &#x60;accessToken&#x60; of a specific player. |
- **x_password** | **str**| The password of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game or player. Required to decrypt and perform blockchain transactions with the game or player primary wallet. |
 
 ### Return type
 
@@ -371,7 +372,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_lootbox_manager_lootbox**
-> TransactionModel remove_lootbox_manager_lootbox(lootbox_manager_id, lootbox_manager_lootbox_id, x_authorization, x_password)
+> TransactionModel remove_lootbox_manager_lootbox(lootbox_manager_id, lootbox_manager_lootbox_id, x_authorization, x_wallet_decrypt_key)
 
 Remove lootbox manager lootbox
 
@@ -397,15 +398,15 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = lootboxes_api.LootboxesApi(api_client)
-    lootbox_manager_id = "lootboxManagerId_example" # str | Any lootbox manager id within the MetaFab ecosystem.
-    lootbox_manager_lootbox_id = "lootboxManagerLootboxId_example" # str | Any lootbox manager lootbox id within the MetaFab ecosystem.
+    lootbox_manager_id = "lootboxManagerId_example" # str | Any lootbox manager id within the MetaFab platform.
+    lootbox_manager_lootbox_id = "lootboxManagerLootboxId_example" # str | Any lootbox manager lootbox id within the MetaFab platform.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
 
     # example passing only required values which don't have defaults set
     try:
         # Remove lootbox manager lootbox
-        api_response = api_instance.remove_lootbox_manager_lootbox(lootbox_manager_id, lootbox_manager_lootbox_id, x_authorization, x_password)
+        api_response = api_instance.remove_lootbox_manager_lootbox(lootbox_manager_id, lootbox_manager_lootbox_id, x_authorization, x_wallet_decrypt_key)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling LootboxesApi->remove_lootbox_manager_lootbox: %s\n" % e)
@@ -416,10 +417,10 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **lootbox_manager_id** | **str**| Any lootbox manager id within the MetaFab ecosystem. |
- **lootbox_manager_lootbox_id** | **str**| Any lootbox manager lootbox id within the MetaFab ecosystem. |
+ **lootbox_manager_id** | **str**| Any lootbox manager id within the MetaFab platform. |
+ **lootbox_manager_lootbox_id** | **str**| Any lootbox manager lootbox id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
 
 ### Return type
 
@@ -446,7 +447,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_lootbox_manager_lootbox**
-> TransactionModel set_lootbox_manager_lootbox(lootbox_manager_id, x_authorization, x_password, set_lootbox_manager_lootbox_request)
+> TransactionModel set_lootbox_manager_lootbox(lootbox_manager_id, x_authorization, x_wallet_decrypt_key, set_lootbox_manager_lootbox_request)
 
 Set lootbox manager lootbox
 
@@ -473,9 +474,9 @@ configuration = metafab_python.Configuration(
 with metafab_python.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = lootboxes_api.LootboxesApi(api_client)
-    lootbox_manager_id = "lootboxManagerId_example" # str | Any lootbox manager id within the MetaFab ecosystem.
+    lootbox_manager_id = "lootboxManagerId_example" # str | Any lootbox manager id within the MetaFab platform.
     x_authorization = "game_sk_02z4Mv3c85Ig0gNowY9Dq0N2kjb1xwzr27ArLE0669RrRI6dLf822iPO26K1p1FP" # str | The `secretKey` of the authenticating game.
-    x_password = "mySecurePassword" # str | The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
+    x_wallet_decrypt_key = "AXNP8MKb+5SbBtHWrZu5KHh5/BomXY/dMRG/BDUn7a4=" # str | The `walletDecryptKey` of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet.
     set_lootbox_manager_lootbox_request = SetLootboxManagerLootboxRequest(
         id=1337,
         input_collection_address="input_collection_address_example",
@@ -503,7 +504,7 @@ with metafab_python.ApiClient() as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Set lootbox manager lootbox
-        api_response = api_instance.set_lootbox_manager_lootbox(lootbox_manager_id, x_authorization, x_password, set_lootbox_manager_lootbox_request)
+        api_response = api_instance.set_lootbox_manager_lootbox(lootbox_manager_id, x_authorization, x_wallet_decrypt_key, set_lootbox_manager_lootbox_request)
         pprint(api_response)
     except metafab_python.ApiException as e:
         print("Exception when calling LootboxesApi->set_lootbox_manager_lootbox: %s\n" % e)
@@ -514,9 +515,9 @@ with metafab_python.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **lootbox_manager_id** | **str**| Any lootbox manager id within the MetaFab ecosystem. |
+ **lootbox_manager_id** | **str**| Any lootbox manager id within the MetaFab platform. |
  **x_authorization** | **str**| The &#x60;secretKey&#x60; of the authenticating game. |
- **x_password** | **str**| The password of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
+ **x_wallet_decrypt_key** | **str**| The &#x60;walletDecryptKey&#x60; of the authenticating game. Required to decrypt and perform blockchain transactions with the game primary wallet. |
  **set_lootbox_manager_lootbox_request** | [**SetLootboxManagerLootboxRequest**](SetLootboxManagerLootboxRequest.md)|  |
 
 ### Return type
